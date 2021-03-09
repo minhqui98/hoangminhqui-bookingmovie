@@ -1,0 +1,40 @@
+.detail-bakground{
+    position: relative;
+    /* filter: blur(10px); */
+}
+.background-overlay{
+    position: absolute;
+    background-color: #000000c2;
+    height: 1000px;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.detail-font{
+    font-size: 19px;
+}
+/* .imgDetail{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: block;
+    max-height: 130vh;
+    filter: blur(6px);
+} */
+.detailInfo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.C18{
+    font-size: 24px;
+    background-color: #DC3545;
+    padding: 4px;
+    border-radius: 3px;
+}
+.stars{
+    font-size: 15px;
+}
