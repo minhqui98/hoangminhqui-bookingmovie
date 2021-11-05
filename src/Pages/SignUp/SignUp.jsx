@@ -35,7 +35,7 @@ function SignUp() {
     padding: 20,
     width: 300,
     margin: "0 auto",
-    height: "73vh",
+    height: "100%",
   };
   const headerStyle = { margin: 0 };
   const spaceStyle = { margin: "10px 0" };

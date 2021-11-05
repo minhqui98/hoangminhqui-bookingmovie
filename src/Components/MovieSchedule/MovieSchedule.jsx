@@ -40,7 +40,7 @@ function MovieSchedule(props) {
   }, []);
 
   return (
-    <div className="container" id="cumRap">
+    <div className="container responsive_Schedule" id="cumRap">
       {/* <h1 className="mb-5">Cụm rạp</h1> */}
       <div className="row border mt-5">
         {/* hệ thống rạp */}

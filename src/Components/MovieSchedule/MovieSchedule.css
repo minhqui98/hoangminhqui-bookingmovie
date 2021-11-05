@@ -17,7 +17,7 @@
     font-weight: bold;
 }
 @media only screen and (max-width: 500px) {
-    .img-rap{
+    .responsive_Schedule{
         display: none;
     }
 }

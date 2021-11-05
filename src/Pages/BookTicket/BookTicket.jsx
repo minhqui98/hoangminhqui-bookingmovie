@@ -42,9 +42,9 @@ function BookTicket(props) {
                   <div className="row">
                     <div className="col-6">
                       <h3>{movieTicket?.thongTinPhim.tenCumRap}</h3>
-                      <p style={{ fontWeight: "bold" }}>
+                      <h4 style={{ fontWeight: "bold",color:"crimson" }}>
                         {movieTicket?.thongTinPhim.tenRap}
-                      </p>
+                      </h4>
                     </div>
                     <div className="col-6">
                       <h1 style={{color:"crimson"}}>{movieTicket?.thongTinPhim.gioChieu}</h1>
@@ -67,7 +67,7 @@ function BookTicket(props) {
                       );
                     })}
                   </div>
-                  <div className="row mt-4">
+                  <div className="row mt-4 text-left">
                     <div className="col-12 col-lg-3">
                       <i className="fa fa-couch"></i>
                       <span> Ghế chưa đặt</span>
@@ -78,11 +78,11 @@ function BookTicket(props) {
                     </div>
                     <div className="col-12 col-lg-3">
                       <i className="fa fa-couch text-success"></i>
-                      <span className="text-success">Ghế đang đặt</span>
+                      <span className="text-success"> Ghế đang đặt</span>
                     </div>
                     <div className="col-12 col-lg-3">
                       <i className="fa fa-couch text-primary"></i>
-                      <span className="text-primary">Ghế Vip</span>
+                      <span className="text-primary"> Ghế Vip</span>
                     </div>
                   </div>
                 </div>
@@ -131,13 +131,13 @@ function BookTicket(props) {
                     <span className="text-left">SĐT:</span>{" "}
                     <span className="font-weight-bold">{credential.soDT}</span>
                   </div>
-                  <div className="tongTien">
-                    <span className="font-weight-bold">Tổng tiền: </span>
-                    <span style={{ fontSize: "40px" }} className="text-success">
+                  <div className="tongTien text-left">
+                    <span className="font-weight-bold ">Tổng tiền: </span>
+                    <span style={{ fontSize: "30px",fontWeight:"bold" }} className="text-danger">
                       {movieChair
                         .reduce((tongTien, ghe, index) => {
                           return (tongTien += ghe.giaVe);
-                        }, 0)
+                        },0)
                         .toLocaleString()}{" "}
                       VNĐ
                     </span>

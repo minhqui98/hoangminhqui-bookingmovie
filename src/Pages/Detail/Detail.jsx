@@ -204,7 +204,7 @@ function Detail(props) {
                   </p>
                   <button
                     onClick={() => handleScroll("lichChieu")}
-                    className="btn btn-danger w-50"
+                    className="btn btn-danger w-100"
                   >
                     Đặt vé
                   </button>

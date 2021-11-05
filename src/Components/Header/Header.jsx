@@ -163,13 +163,13 @@ function Header(props) {
             <NavLink to="/#" activeStyle>
               Lịch chiếu
             </NavLink>
-            <NavLink to="/#" activeStyle>
+            <NavLink onClick={() => handleScroll("cumRap")} to="/#" activeStyle>
               Cụm rạp
             </NavLink>
-            <NavLink to="/#" href="cumRap" activeStyle>
+            <NavLink onClick={() => handleScroll("tinTuc")} to="/#" href="cumRap" activeStyle>
               Tin tức
             </NavLink>
-            <NavLink style={{ marginBottom: "10px" }} to="/#" activeStyle>
+            <NavLink onClick={() => handleScroll("ungDung")} style={{ marginBottom: "10px" }} to="/#" activeStyle>
               Ứng dụng
             </NavLink>
             {credential ? (
