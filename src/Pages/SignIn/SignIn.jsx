@@ -52,7 +52,6 @@ function SignIn({ handleChange }) {
       .required("Không đc để trống!"),
   });
   const handleSubmit = (values) => {
-    console.log(values);
     dispatch(
       login(values, () => {
         Swal.fire({

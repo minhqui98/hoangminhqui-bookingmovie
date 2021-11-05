@@ -144,7 +144,6 @@ export const ThongTinTaiKhoan = (data) => {
 };
 //dat ve button
 export const datVeMovie = (data) => {
-  // console.log(data,"ldaaaaaa");
   return (dispatch) => {
     datVe
       .datVeXemPhim(data)

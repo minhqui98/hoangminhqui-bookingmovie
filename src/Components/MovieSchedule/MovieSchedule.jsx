@@ -25,15 +25,12 @@ function MovieSchedule(props) {
       dispatch(courseAction("GET_LICH_CHIEU", payLoad));
     }, 50);
   };
-  console.log(movieScheduleDate);
+  
   useEffect(() => {
     async function fetchDAta() {
       dispatch(LayDanhSachRap());
       let response = await dispatch(LayLichChieuTheoRap(idName));
-      console.log(response);
-      // if(response ){
-      //     dispatch(courseAction("GET_LICH_CHIEU", movieScheduleDate[0]?.lstCumRap[0]["danhSachPhim"]))
-      // }
+     
     }
     fetchDAta();
     dispatch(courseAction("GET_LICH_CHIEU", []))

@@ -43,7 +43,7 @@ function Header(props) {
   const history = useHistory();
 
   const { credential, userInfor } = useSelector((state) => state.phim);
-  console.log(userInfor);
+
   const [anchorEl, setAnchorEl] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
@@ -136,7 +136,7 @@ function Header(props) {
               <Button
                 onClick={handleSignOut}
                 color="secondary"
-                variant="contained"
+                variant="outlined"
               >
                 {" "}
                 Đăng xuất
@@ -184,7 +184,7 @@ function Header(props) {
                 <Button
                   style={{ marginRight: 10 }}
                   color="secondary"
-                  variant="contained"
+                  variant="outlined"
                 >
                   Đăng xuất
                 </Button>
@@ -262,30 +262,8 @@ function Header(props) {
     </>
   );
 
-  // componentDidMount() {
-  //   // console.log(this.props.userInfo,"op");
-  //   // this.LayInfo();
-  //   let local=JSON.parse(localStorage.getItem("cxvnbxcmn")) ;
-  //   if(local)
-  //   {
-  //     this.props.dispatch(ThongTinTaiKhoan(local))
-  //   }
-
-  // }
+  
 }
-// const mapStateToProp = (state) => {
-//   return {
-//     credential: state.phim.credential,
-//     movieChair: state.phim.movieChair,
-//     userInfo: state.phim.userInfor||{
-//       hoTen:"",
-//       soDT:"",
-//       email:"",
-//       thongTinDatVe:[],
-//       danhSachGhe:[]
-//     },
-//   }
-// }
+
 export default Header;
 
-// export default connect(mapStateToProp)(Header);

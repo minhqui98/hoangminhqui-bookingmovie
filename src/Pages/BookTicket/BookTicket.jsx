@@ -41,7 +41,7 @@ function BookTicket(props) {
                 <div className="col-12 col-lg-9">
                   <div className="row">
                     <div className="col-6">
-                      <h3>{movieTicket?.thongTinPhim.tenCumRap}</h3>
+                      <h3 style={{ color:"crimson" }}>{movieTicket?.thongTinPhim.tenCumRap}</h3>
                       <h4 style={{ fontWeight: "bold",color:"crimson" }}>
                         {movieTicket?.thongTinPhim.tenRap}
                       </h4>
@@ -90,17 +90,17 @@ function BookTicket(props) {
                   <div className="ticket-info border-bottom py-4">
                     <div className="row">
                       <div className="col-6">
-                        <h5 className="font-weight-bold">
-                          <span>C18</span> {movieTicket?.thongTinPhim.tenPhim}
+                        <h5 className="font-weight-bold" style={{ color:"darkgreen" }}>
+                          <span className="C13">C18</span> {movieTicket?.thongTinPhim.tenPhim}
                         </h5>
                         |<br />
-                        <span>{movieTicket?.thongTinPhim.tenCumRap}</span>
+                        <span style={{fontWeight:"bold"}}>{movieTicket?.thongTinPhim.tenCumRap}</span>
                         <br />|
                         <p className="font-weight-bold">
                           {movieTicket?.thongTinPhim.tenRap}
                         </p>
-                        <p>{movieTicket?.thongTinPhim.gioChieu}</p>
-                        <p>{movieTicket?.thongTinPhim.ngayChieu}</p>
+                        <p style={{fontWeight:"bold"}}>Giờ chiếu: {movieTicket?.thongTinPhim.gioChieu} PM</p>
+                        <p style={{fontWeight:"bold"}}>Ngày {movieTicket?.thongTinPhim.ngayChieu}</p>
                       </div>
                       <div className="col-6">
                         <img

@@ -32,8 +32,6 @@ class MovieChair extends Component {
         });
     }
     render() {
-        
-        // console.log(this.props.chair.daDat,"dadat");
         return (
             <>
                 {this.props.chair.daDat===true?(

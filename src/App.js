@@ -19,6 +19,7 @@ import 'antd/dist/antd.css';
 class App extends Component {
   render(){
     return (
+      // <StyledEngineProvider>
       <div className="App">
         <BrowserRouter>
           <Switch>
@@ -31,6 +32,7 @@ class App extends Component {
           </Switch>
         </BrowserRouter>
       </div>
+      // </StyledEngineProvider>
     );
   }
   getCredentialLocal=()=>{
@@ -43,7 +45,7 @@ class App extends Component {
   }
   getToken=()=>{
     const token=localStorage.getItem("token");
-    // console.log(token,"tokenasdasdasda");
+
     if(token)
     {
       this.props.dispatch(courseAction("GET_TOKEN",token))

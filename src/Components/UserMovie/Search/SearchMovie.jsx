@@ -12,7 +12,6 @@ class SearchMovie extends Component {
         this.setState({
             form:value
         })
-        console.log(value,"cacccccc");
         if(value){
         this.props.dispatch(layDanhSachTheoTen(value))
         }

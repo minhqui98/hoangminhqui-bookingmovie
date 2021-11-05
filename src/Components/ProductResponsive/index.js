@@ -13,7 +13,7 @@ const initialState = {
 }
 function ProductResponsive(props) {
     const [data, setData] = useState(initialState);
-    console.log(data);
+
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
     const [loadMore, setLoadmore] = useState(false)
@@ -22,7 +22,6 @@ function ProductResponsive(props) {
             setError(false)
             setLoading(true)
             const movie = await phimService.LoadDanhSachPhimResponsive(page, limit);
-            // console.log(movie);
             setData(prev => ({
                 ...movie.data,
                 items: page > 1 ? [...prev.items, ...movie.data.items] : [...movie.data.items]

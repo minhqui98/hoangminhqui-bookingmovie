@@ -24,7 +24,6 @@ function Detail(props) {
 
   const { detailPhim, movieSchedule, maRap, detailCal, credential } =
     useSelector((state) => state.phim);
-    console.log(maRap);
   useEffect(() => {
     dispatch(fetchCourseDetail(params.id));
     dispatch(LayLichChieuTheoMaPhim("BHDStar"));
@@ -34,7 +33,7 @@ function Detail(props) {
 
   const loadingPage = () => {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(setIsLoading(true)), 2800);
+      setTimeout(() => resolve(setIsLoading(true)), 3000);
     });
   };
   const danhGiaPhim = () => {
@@ -202,12 +201,15 @@ function Detail(props) {
                     <b>Đánh giá: </b>
                     {detailPhim?.danhGia} điểm{danhGiaPhim()}
                   </p>
+                  
                   <button
                     onClick={() => handleScroll("lichChieu")}
-                    className="btn btn-danger w-100"
+                    className="btn btn-danger w-50"
                   >
                     Đặt vé
                   </button>
+                  
+                 
                 </div>
               </div>
             </div>

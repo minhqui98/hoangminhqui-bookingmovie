@@ -6,12 +6,7 @@ import { layLichChieu } from '../../Redux/Actions/course';
 import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 import { Boxs, ButtonBuyTicket } from './DatPhimNhanh.styles';
-const Item = styled(Paper)(({ theme }) => ({
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
+
 function DatPhimNhanh(props) {
     const dispatch = useDispatch();
     const [movieName, setMovieName] = useState(null);
@@ -23,12 +18,9 @@ function DatPhimNhanh(props) {
 
 
     const { ListPhim, lichChieuPhim, credential } = useSelector(state => state.phim)
-    console.log(movieName);
-    // console.log(lichChieuPhim);
 
     const handleChangeMovieName = (event) => {
         setMovieName(event.target.value)
-        // console.log(event.target.value);
         dispatch(layLichChieu(event.target.value))
         setTheaterSystem(null)
         setTheaterDate(null)

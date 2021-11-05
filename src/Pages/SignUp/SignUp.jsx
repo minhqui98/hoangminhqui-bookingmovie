@@ -86,7 +86,6 @@ function SignUp() {
     // soDt:Yup.string().("Nhập đúng định dạng mail!")
   });
   const handleSubmit = (values, props) => {
-    console.log(values);
     dispatch(
       signuppp(values, () => {
         props.resetForm();
