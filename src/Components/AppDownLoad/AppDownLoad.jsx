@@ -48,11 +48,11 @@ class AppDownLoad extends Component {
             // ],
          };
         return (
-            <div>
+            <div id="ungDung">
                  <div className="aboutApp">
             <div className="container">
                <div className="row">
-                  <div className="col-6 aboutLeft">
+                  <div className="col-6 aboutLeft text-light">
                      <h2>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h2>
                      <p className="my-4">
                         Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm

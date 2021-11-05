@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AppDownLoad from '../../Components/AppDownLoad/AppDownLoad';
 import Carousel from '../../Components/Carousel/Carousel';
+import DatPhimNhanh from '../../Components/DatPhimNhanh/DatPhimNhanh';
 // import DatPhimNhanh from '../../Components/DatPhimNhanh/DatPhimNhanh';
 import Footer from '../../Components/Footer/Footer';
 import Header from '../../Components/Header/Header';
@@ -8,6 +9,7 @@ import LoadPage from '../../Components/LoadPage/LoadPage';
 import MovieSchedule from '../../Components/MovieSchedule/MovieSchedule';
 import News from '../../Components/News/News';
 import Product from '../../Components/Product/Product';
+import ProductResponsive from '../../Components/ProductResponsive';
 
 class Home extends Component {
     constructor(props) {
@@ -28,6 +30,7 @@ class Home extends Component {
                 {this.state.isLoading?(<div><Carousel/>
                 {/* <DatPhimNhanh/> */}
                 <Product/>
+                <ProductResponsive/>
                 <MovieSchedule/>
                 <News/>
                 <AppDownLoad/>

@@ -54,6 +54,9 @@ const ListPhim = (state = initialState, action) => {
             }
             state.movieChair = danhSachghe;
             return { ...state };
+            case "GET_CHAIR_RELOAD":
+                state.movieChair = action.payLoad;
+            return { ...state };
         case "XOA_GHE":
             return { ...state, movieChair: [] };
         case "GET_TOKEN":

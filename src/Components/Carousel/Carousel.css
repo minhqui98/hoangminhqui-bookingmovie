@@ -1,5 +1,6 @@
 .carousel-content{
     position: relative;
+    padding-top: 60px;
 }
 .datPhimNhanh{
     z-index: 10;
@@ -9,3 +10,9 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
+@media screen and (max-width: 400px) {
+    #carouselExampleFade{
+        display: none;
+    }
+ }

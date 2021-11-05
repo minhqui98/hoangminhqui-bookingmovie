@@ -1,7 +1,7 @@
 
 import './App.css';
 import Home from './Pages/Home/Home';
-import Detail from './Pages/Detail/Detail';
+import Detail from '../src/Pages/Detail/Detail';
 import SignUp from './Pages/SignUp/SignUp';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import SignIn from './Pages/SignIn/SignIn';
@@ -10,6 +10,10 @@ import { connect } from "react-redux";
 import { courseAction } from './Redux/Actions';
 import BookTicket from './Pages/BookTicket/BookTicket';
 import admin from './Pages/Admin/admin';
+import TabSignInUp from './Components/Tab';
+import 'antd/dist/antd.css';
+
+
 // import SignInAdmin from './Pages/SignInAdmin/SignInAdmin';
 
 class App extends Component {
@@ -21,7 +25,7 @@ class App extends Component {
             <Route path="/detail/:id" component={Detail}/>
             <Route path="/admin" component={admin}/>
             <Route path="/signup" component={SignUp}/>
-            <Route path="/signin" component={SignIn}/>
+            <Route path="/signin" component={TabSignInUp}/>
             <Route path="/bookticket/:id" component={BookTicket}/>
             <Route path="/" exact component={Home}/>
           </Switch>

@@ -94,9 +94,9 @@ class ProductItem extends Component {
                     </div>
 
                     <div className="overlay"></div>
-                    <div className="play">
+                    {/* <div className="play">
                         <a style={{ color: "white" }}><i onClick={()=>this.handleClickOpen(this.props.phim.trailer)} className="fa fa-play"></i></a>
-                    </div>
+                    </div> */}
                     <div className="danhGia">
                         <span className="text-danger font-weight-bold">{this.props.phim.danhGia}</span><br />
                         {this.danhGiaPhim()}

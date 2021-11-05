@@ -1,11 +1,11 @@
 .aboutApp {
     background-image: url("https://tix.vn/app/assets/img/icons/backapp.jpg");
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     display: flex;
     width: 100%;
     background-size: cover;
     align-items: center;
-    padding: 100px 0;
+    padding: 132px 0;
  }
  .aboutLeft {
     margin-top: auto;
@@ -22,6 +22,7 @@
     left: 50%;
     width: 39%;
     transform: translate(-50%, -50%);
+    padding: 30px 0;
  }
  .rearPhone {
     object-fit: cover;

@@ -1,84 +1,197 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 // import { userService } from "../../Service/index,";
-import { schemaSignUp } from '../../Service/axiosSignupandSignin';
-import Header from '../../Components/Header/Header';
-import { signuppp } from '../../Redux/Actions/course';
+import { schemaSignUp } from "../../Service/axiosSignupandSignin";
+import Header from "../../Components/Header/Header";
+import { signuppp } from "../../Redux/Actions/course";
 import BackgroundSignup from "../../asset/img/bgsigninsignup.png";
 import "./Signup.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
+import banner from "../../asset/img/movie-Banner.jpg";
+import usser from "../../asset/img/usser.png";
 
-class SignUp extends Component {
-    handleSubmit = (values) => {
-        this.props.dispatch(signuppp(values,()=>{
-            this.props.history.push("/");
-        }))
-    }
-    
-    render() {
-        
-        return (
-            <div>
-                <Header />
-                
-                <div className="container-fluild" style={{ backgroundImage: `url(${BackgroundSignup})`, width: "100%", height: "100vh", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}>
-                    <div className="row justify-content-center">
-                        <div className="col-12 col-sm-6 col-md-3 form-content">
-                            <Formik validationSchema={schemaSignUp} onSubmit={this.handleSubmit} initialValues={{ taiKhoan: '', hoTen: '', email: '', matKhau: '', maNhom: 'GP01', soDT: '',maLoaiNguoiDung:"KhachHang" }} render={(formikProp) => {
-                                return (
-                                    <Form className="form-container text-light">
-                                        <h1 className="text-light">Đăng kí</h1>
-                                        <div className="form-group">
-                                            <h4 className="text-left">Tài khoản</h4>
-                                            <Field placeholder="Tài khoản" type="text" className="form-control" name="taiKhoan" onChange={formikProp.handleChange} />
-                                            <ErrorMessage name="taiKhoan">{(msg) => { return (<div className="alert alert-danger">{msg}</div>) }}</ErrorMessage>
-                                        </div>
-                                        <div className="form-group">
-                                            <h4 className="text-left">Họ tên</h4>
-                                            <Field placeholder="Họ tên" type="text" className="form-control" name="hoTen" onChange={formikProp.handleChange} />
-                                            <ErrorMessage name="hoTen">{(msg) => { return (<div className="alert alert-danger">{msg}</div>) }}</ErrorMessage>
-                                        </div>
-                                        <div className="form-group">
-                                            <h4 className="text-left">Email</h4>
-                                            <Field placeholder="Email" type="email" className="form-control" name="email" onChange={formikProp.handleChange} />
-                                            <ErrorMessage name="email">{(msg) => { return (<div className="alert alert-danger">{msg}</div>) }}</ErrorMessage>
-                                        </div>
-                                        <div className="form-group">
-                                            <h4 className="text-left">Số điện thoại</h4>
-                                            <Field placeholder="Số ĐT" className="form-control" name="soDT" onChange={formikProp.handleChange} />
-                                            <ErrorMessage name="soDT">{(msg) => { return (<div className="alert alert-danger">{msg}</div>) }}</ErrorMessage>
-                                        </div>
-                                        <div className="form-group">
-                                            <h4 className="text-left">Mật khẩu</h4>
-                                            <Field placeholder="Mật khẩu" type="password" className="form-control" name="matKhau" onChange={formikProp.handleChange} />
-                                            <ErrorMessage name="matKhau">{(msg) => { return (<div className="alert alert-danger">{msg}</div>) }}</ErrorMessage>
-                                        </div>
-                                        <div className="form-group">
-                                            <h4 className="text-left">Mã nhóm</h4>
-                                            <Field component="select" className="form-control" name="maNhom" onChange={formikProp.handleChange}>
-                                                <option>GP01</option>
-                                                <option>GP02</option>
-                                                <option>GP03</option>
-                                                <option>GP04</option>
-                                                <option>GP05</option>
-                                                <option>GP06</option>
-                                                <option>GP07</option>
-                                                <option>GP08</option>
-                                                <option>GP09</option>
-                                                <option>GP10</option>
-                                            </Field>
-                                        </div>
-                                        <p>Đã có tài khoản ?<NavLink to="/signin"> Đăng nhập ngay !</NavLink></p>
-                                        <button className="btn btn-success w-100">Đăng kí</button>
-                                    </Form>)
-                            }} />
-                        </div>
-                    </div>
+import {
+  Grid,
+  Paper,
+  Avatar,
+  Typography,
+  TextField,
+  Button,
+} from "@material-ui/core";
+import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import { useDispatch } from "react-redux";
+import * as yup from "yup";
 
-                </div>
-            </div>
-        );
-    }
+function SignUp() {
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const paperStyle = {
+    padding: 20,
+    width: 300,
+    margin: "0 auto",
+    height: "73vh",
+  };
+  const headerStyle = { margin: 0 };
+  const spaceStyle = { margin: "10px 0" };
+
+  const avatarStyle = { backgroundColor: "#1bbd7e" };
+  const marginTop = { marginTop: 10 };
+  const initialValues = {
+    taiKhoan: "",
+    matKhau: "",
+    email: "",
+    soDt: "",
+    maNhom: "GP01",
+    maLoaiNguoiDung: "KhachHang",
+    hoTen: "",
+  };
+
+  const phoneRegExp =
+    /^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/;
+  const validationSchema = yup.object().shape({
+    taiKhoan: yup
+      .string()
+      .trim("Khoảng trắng ko hợp lệ!!")
+      .strict(true)
+      .required("Không đc để trống!"),
+    hoTen: yup
+      .string()
+      .trim("Khoảng trắng ko hợp lệ!!")
+      .strict(true)
+      .required("Không đc để trống!"),
+
+    email: yup
+      .string()
+      .email("Không đúng định dạng!")
+      .trim("Khoảng trắng ko hợp lệ!")
+      .strict(true)
+      .required("Không đc để trống!"),
+    soDt: yup
+      .string()
+      .required("Không đc để trống!")
+      .matches(phoneRegExp, "Số đt ko hợp lệ"),
+    matKhau: yup
+      .string()
+      .min(4, "Tối thiểu 4 kí tự")
+      .trim("Khoảng trắng ko hợp lệ!!")
+      .strict(true)
+      .required("Không đc để trống!"),
+
+    // soDt:Yup.string().("Nhập đúng định dạng mail!")
+  });
+  const handleSubmit = (values, props) => {
+    console.log(values);
+    dispatch(
+      signuppp(values, () => {
+        props.resetForm();
+      })
+    );
+  };
+
+  return (
+    <Grid>
+      <Paper style={paperStyle}>
+        <Grid align="center">
+          <Avatar style={avatarStyle}>
+            <AddCircleOutlineOutlinedIcon />
+          </Avatar>
+          <h2 style={headerStyle}>Đăng ký </h2>
+        </Grid>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+          validationSchema={validationSchema}
+        >
+          {(props) => (
+            <Form>
+              <Field
+                helperText={
+                  <ErrorMessage name="taiKhoan">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
+                }
+                as={TextField}
+                name="taiKhoan"
+                style={spaceStyle}
+                fullWidth
+                label="Tài khoản"
+                placeholder="Nhập tài khoản"
+              />
+              <Field
+                helperText={
+                  <ErrorMessage name="hoTen">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
+                }
+                as={TextField}
+                name="hoTen"
+                style={spaceStyle}
+                fullWidth
+                label="Họ tên"
+                placeholder="Nhập họ tên"
+              />
+              <Field
+                helperText={
+                  <ErrorMessage name="email">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
+                }
+                as={TextField}
+                name="email"
+                style={spaceStyle}
+                fullWidth
+                label="Email"
+                placeholder="Nhập email"
+              />
+              <Field
+                helperText={
+                  <ErrorMessage name="soDt">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
+                }
+                as={TextField}
+                name="soDt"
+                style={spaceStyle}
+                type="number"
+                fullWidth
+                label="Số điện thoại"
+                placeholder="Nhập số điện thoại"
+              />
+              <Field
+                helperText={
+                  <ErrorMessage name="matKhau">
+                    {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                  </ErrorMessage>
+                }
+                as={TextField}
+                name="matKhau"
+                style={spaceStyle}
+                fullWidth
+                label="Mật khẩu"
+                placeholder="Nhập mật khẩu"
+              />
+
+              <Button
+                type="submit"
+                style={{ marginTop: 10 }}
+                variant="contained"
+                color="primary"
+                fullWidth
+              >
+                Đăng ký
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </Paper>
+    </Grid>
+  );
 }
 
 export default SignUp;
