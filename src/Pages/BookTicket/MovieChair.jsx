@@ -37,8 +37,8 @@ class MovieChair extends Component {
         return (
             <>
                 {this.props.chair.daDat===true?(
-                <i onClick={()=>this.onclickDaDat()} className="fa fa-couch text-danger m-2"></i>):
-                (<i className={!this.state.isBooking ? `fa fa-couch m-2 ${this.props.chair.loaiGhe==="Thuong"?"":"fa fa-couch text-primary"}`:"fa fa-couch text-success m-2"}
+                <i style={{fontSize:"20px"}} onClick={()=>this.onclickDaDat()} className="fa fa-couch text-danger m-2"></i>):
+                (<i style={{fontSize:"20px"}} className={!this.state.isBooking ? `fa fa-couch m-2 ${this.props.chair.loaiGhe==="Thuong"?"":"fa fa-couch text-primary"}`:"fa fa-couch text-success m-2"}
                  onClick={()=>{this.onClickDoiMau();this.props.onclickBookChair(this.props.chair)}}></i>)}
             </>
         );

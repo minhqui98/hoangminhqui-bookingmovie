@@ -236,14 +236,14 @@ function Header(props) {
                   <span style={{ fontWeight: "bold" }}>{item.tenPhim}</span> 
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                  - Cụm Rạp:{" "}
+                  - Cụm rạp:{" "}
                   <span style={{ fontWeight: "bold" }}>
                     {item.danhSachGhe[0]["tenHeThongRap"]} (
                     {item.danhSachGhe[0]["tenCumRap"]})
                   </span>
                 </Typography>
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                  - Ghế:{" "}
+                  - Số ghế:{" "}
                   {item.danhSachGhe.map((item) => (
                     <span style={{ fontWeight: "bold", marginRight: "10px" }}>
                       {item.tenGhe}
