@@ -14,12 +14,12 @@ function BookTicket(props) {
   const dispatch = useDispatch();
   const params =useParams();
   const [isLoading, setIsLoading] = useState(false);
-  const { credential, movieTicket, movieChair } = useSelector(
+  const { credential, movieTicket, movieChair,loading } = useSelector(
     (state) => state.phim
   );
   useEffect(()=>{
     dispatch(LayThongTinPhongVe(params.id));
-    loadingPage();
+    // loadingPage();
     dispatch({type:"XOA_GHE"});
   },[params.id])
   const loadingPage = () => {
@@ -33,7 +33,7 @@ function BookTicket(props) {
   return (
     <div style={{ marginTop: "120px" }}>
       <Header />
-      {isLoading ? (
+      {!loading ? (
         <div>
           <div className="bookticket-content my-5">
             <div className="container-fluid">
@@ -125,11 +125,11 @@ function BookTicket(props) {
                   </div>
                   <div className="ticket-user border-bottom py-4 text-left">
                     <span className="text-left">Email:</span>{" "}
-                    <span className="font-weight-bold">{credential.email}</span>
+                    <span className="font-weight-bold">{credential?.email}</span>
                   </div>
                   <div className="ticket-user border-bottom py-4 text-left">
                     <span className="text-left">SĐT:</span>{" "}
-                    <span className="font-weight-bold">{credential.soDT}</span>
+                    <span className="font-weight-bold">{credential?.soDT}</span>
                   </div>
                   <div className="tongTien text-left">
                     <span className="font-weight-bold ">Tổng tiền: </span>

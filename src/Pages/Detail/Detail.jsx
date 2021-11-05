@@ -22,18 +22,18 @@ function Detail(props) {
   const params = useParams();
   const [isLoading, setIsLoading] = useState(false);
 
-  const { detailPhim, movieSchedule, maRap, detailCal, credential } =
+  const { detailPhim, movieSchedule, maRap, detailCal, credential,loading } =
     useSelector((state) => state.phim);
   useEffect(() => {
     dispatch(fetchCourseDetail(params.id));
     dispatch(LayLichChieuTheoMaPhim("BHDStar"));
-    loadingPage();
+    // loadingPage();
     dispatch(LayDanhSachRap());
   }, [params.id]);
 
   const loadingPage = () => {
     return new Promise((resolve) => {
-      setTimeout(() => resolve(setIsLoading(true)), 3000);
+      // setTimeout(() => resolve(setIsLoading(true)), 3000);
     });
   };
   const danhGiaPhim = () => {
@@ -155,7 +155,7 @@ function Detail(props) {
   return (
     <div>
       <Header />
-      {isLoading ? (
+      {!loading ? (
         <>
           <div
             className="detail-bakground"

@@ -13,8 +13,9 @@
     width: 200px;
     height: 200px;
     line-height: 100px;
-    animation-name: lazyload;
-    animation-duration: 4s;
+    /* animation-name: lazyload;
+    animation-duration: 8s; */
+    animation: lazyload 5s infinite;
     /* bottom: 10%; */
  }
  @keyframes lazyload {

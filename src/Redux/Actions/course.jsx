@@ -29,10 +29,12 @@ export const fetchCourse = () => {
 //chi tiết phim
 export const fetchCourseDetail = (id) => {
   return (dispatch) => {
+    dispatch(courseAction("GET_DETAIL_SUCCESS", true));
     phimService
       .LoadChiTietPhim(id)
       .then((res) => {
         dispatch(courseAction("GET_DETAIL", res.data));
+        dispatch(courseAction("GET_DETAIL_SUCCESS", false));
       })
       .catch((err) => {
         console.log(err);
@@ -74,10 +76,12 @@ export const LayLichChieuTheoMaPhim = (id) => {
 //đặt vé
 export const LayThongTinPhongVe = (id) => {
   return (dispatch) => {
+    dispatch(courseAction("GET_TICKKET_SUCCESS", true));
     bookTicket
       .LayDanhSachPhongVe(id)
       .then((res) => {
         dispatch(courseAction("GET_TICKKET", res.data));
+        dispatch(courseAction("GET_TICKKET_SUCCESS", false));
       })
       .catch((err) => {
         console.log(err);
@@ -148,22 +152,21 @@ export const datVeMovie = (data) => {
     datVe
       .datVeXemPhim(data)
       .then((res) => {
-        dispatch(LayThongTinPhongVe(data.maLichChieu));
-        const token = localStorage.getItem("cxvnbxcmn");
-        dispatch(ThongTinTaiKhoan(token));
-        
+        // dispatch(LayThongTinPhongVe(data.maLichChieu));
+        // const token = localStorage.getItem("cxvnbxcmn");
+        // dispatch(ThongTinTaiKhoan(token));
+
         Swal.fire({
           title: "Đã đặt vé thành công",
           icon: "success", //error, success,warning,question
           confirmButtonText: "Tiếp tục",
           // showCancelButton: true,
-        }).then((isConfrim)=>{
-          if(isConfrim.isConfirmed){
+        }).then((isConfrim) => {
+          if (isConfrim.isConfirmed) {
             dispatch({ type: "XOA_GHE" });
             window.location.reload();
           }
-        })
-        
+        });
       })
       .catch((err) => {
         console.log(err);

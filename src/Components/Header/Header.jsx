@@ -74,7 +74,7 @@ function Header(props) {
     localStorage.removeItem("token");
     dispatch(courseAction("GET_CREDENTIAL", null));
     dispatch({ type: "XOA_GHE" });
-    history.push("/");
+    history.replace("/signin");
   };
 
   const handleClick = (event) => {
@@ -185,6 +185,7 @@ function Header(props) {
                   style={{ marginRight: 10 }}
                   color="secondary"
                   variant="outlined"
+                  onClick={handleSignOut}
                 >
                   Đăng xuất
                 </Button>
